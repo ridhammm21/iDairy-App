@@ -1,4 +1,3 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:idairy/pages/home_page.dart';
@@ -14,11 +13,11 @@ class AuthGate extends StatelessWidget {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
           //user logged in
-          if(snapshot.hasData){
-            return HomePage();
+          if (snapshot.hasData) {
+            return const HomePage();
           }
           //user not logged in
-          else{
+          else {
             return const LoginOrRegister();
           }
         },

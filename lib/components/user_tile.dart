@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
 
 class UserTile extends StatelessWidget {
-
   final String text;
   final void Function()? onTap;
 
-  const UserTile({
-    super.key, 
-    required this.text, 
-    required this.onTap
-  });
+  const UserTile({super.key, required this.text, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +15,11 @@ class UserTile extends StatelessWidget {
           color: Theme.of(context).colorScheme.secondary,
           borderRadius: BorderRadius.circular(12),
         ),
-        margin: EdgeInsets.symmetric(vertical: 5, horizontal: 25),
-        padding: EdgeInsets.all(20),
+        margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 25),
+        padding: const EdgeInsets.all(20),
         child: Row(
           children: [
-            Icon(Icons.person),
+            const Icon(Icons.person),
             const SizedBox(width: 20),
             Text(text),
           ],

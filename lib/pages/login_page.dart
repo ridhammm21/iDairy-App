@@ -7,7 +7,6 @@ import 'package:idairy/services/auth/auth_service.dart';
 import 'package:idairy/utils/global_colors.dart';
 
 class LoginPage extends StatelessWidget {
-
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
@@ -18,18 +17,19 @@ class LoginPage extends StatelessWidget {
     required this.onTap,
   });
 
-  void login(BuildContext context) async{
+  void login(BuildContext context) async {
     //auth service
     final authService = AuthService();
 
     //try login
-    try{
-      await authService.signInWithEmailPassword(_emailController.text, _passwordController.text);
+    try {
+      await authService.signInWithEmailPassword(
+          _emailController.text, _passwordController.text);
     }
     //catch error
-    catch(e) {
+    catch (e) {
       showDialog(
-        context: context, 
+        context: context,
         builder: (context) => AlertDialog(
           title: Text(e.toString()),
         ),
@@ -40,7 +40,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: GlobalColors.tertiary, 
+      backgroundColor: GlobalColors.tertiary,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -53,7 +53,7 @@ class LoginPage extends StatelessWidget {
             ),
             const SizedBox(height: 50),
             //welcome
-            Text(
+            const Text(
               "Welcome back, you've been missed!",
               style: TextStyle(
                 fontSize: 16,
@@ -102,9 +102,8 @@ class LoginPage extends StatelessWidget {
                 ),
               ],
             ),
-            
           ],
-          ),
+        ),
       ),
     );
   }

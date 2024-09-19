@@ -7,50 +7,47 @@ import 'package:idairy/services/auth/auth_service.dart';
 import 'package:idairy/utils/global_colors.dart';
 
 class RegisterPage extends StatelessWidget {
-
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmpasswordController = TextEditingController();
+  final TextEditingController _confirmpasswordController =
+      TextEditingController();
 
   void Function()? onTap;
-  
+
   RegisterPage({
     super.key,
     required this.onTap,
   });
 
-  void register(BuildContext context) async{
+  void register(BuildContext context) async {
     //get auth service
-    final _auth = AuthService();
+    final auth = AuthService();
 
     //password match
-    if(_passwordController.text ==_confirmpasswordController.text)
-    {
-      try{
-        _auth.signUpWithEmailPassword(_emailController.text, _passwordController.text);
-      }
-      catch (e){
+    if (_passwordController.text == _confirmpasswordController.text) {
+      try {
+        auth.signUpWithEmailPassword(
+            _emailController.text, _passwordController.text);
+      } catch (e) {
         showDialog(
-        context: context, 
-        builder: (context) => AlertDialog(
-          title: Text(e.toString()),
-        ),
-      );
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text(e.toString()),
+          ),
+        );
       }
     }
 
     //password don't match
-    else{
+    else {
       showDialog(
-        context: context, 
-        builder: (context) => AlertDialog(
-          title: Text("Password don't match"),
-        )
-        );
+          context: context,
+          builder: (context) => const AlertDialog(
+                title: Text("Password don't match"),
+              ));
     }
-
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,7 +64,7 @@ class RegisterPage extends StatelessWidget {
             ),
             const SizedBox(height: 50),
             //welcome
-            Text(
+            const Text(
               "Welcome back, you've been missed!",
               style: TextStyle(
                 fontSize: 16,
@@ -123,9 +120,8 @@ class RegisterPage extends StatelessWidget {
                 ),
               ],
             ),
-            
           ],
-          ),
+        ),
       ),
     );
   }
