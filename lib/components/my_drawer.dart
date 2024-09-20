@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:idairy/pages/setting_page.dart';
+import 'package:idairy/pages/navigation_page.dart';
 import 'package:idairy/services/auth/auth_service.dart';
 import 'package:idairy/utils/global_colors.dart';
 
@@ -42,6 +42,53 @@ class MyDrawer extends StatelessWidget {
                   onTap: () {
                     //pop drawer
                     Navigator.pop(context);
+                    //go to home
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => NavigationPage(),
+                      ),
+                    );
+                  },
+                ),
+              ),
+
+              //cart
+              Padding(
+                padding: const EdgeInsets.only(left: 25.0),
+                child: ListTile(
+                  title: Text("C A R T",style: TextStyle(color: GlobalColors.textColor),),
+                  leading: Icon(Icons.shopping_cart, color: GlobalColors.textColor),
+                  onTap: () {
+                    //pop drawer
+                    Navigator.pop(context);
+                    //go to home
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => NavigationPage(),
+                      ),
+                    );
+                  },
+                ),
+              ),
+
+              //wallet
+              Padding(
+                padding: const EdgeInsets.only(left: 25.0),
+                child: ListTile(
+                  title: Text("W A L L E T",style: TextStyle(color: GlobalColors.textColor),),
+                  leading: Icon(Icons.account_balance_wallet, color: GlobalColors.textColor),
+                  onTap: () {
+                    //pop drawer
+                    Navigator.pop(context);
+                    //go to home
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => NavigationPage(),
+                      ),
+                    );
                   },
                 ),
               ),
@@ -59,7 +106,7 @@ class MyDrawer extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SettingPage(),
+                        builder: (context) => NavigationPage(),
                       ),
                     );
                   },

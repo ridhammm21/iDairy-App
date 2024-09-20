@@ -54,7 +54,7 @@ class RegisterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: GlobalColors.tertiary,
+      backgroundColor: GlobalColors.textColor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -63,7 +63,7 @@ class RegisterPage extends StatelessWidget {
             Icon(
               Icons.local_drink,
               size: 60,
-              color: GlobalColors.textColor,
+              color: GlobalColors.primary,
             ),
             const SizedBox(height: 50),
             //welcome
