@@ -18,10 +18,11 @@ class AuthService{
       UserCredential userCredential = await _auth.signInWithEmailAndPassword(email: email, password: password);
       
       //save user info if doesn't already exist
-      _firestore.collection("Users").doc(userCredential.user!.uid).set(
+      _firestore.collection("users").doc(userCredential.user!.uid).set(
         {
           'uid' : userCredential.user!.uid,
           'email' : email,
+          'wallet' : 0
         },
       );
       
@@ -33,27 +34,26 @@ class AuthService{
   }
 
   //sign up
-  Future<UserCredential> signUpWithEmailPassword (String email, password) async {
+  Future<UserCredential> signUpWithEmailPassword (String name, email, password) async {
     //create user
     try{
       UserCredential userCredential = await _auth.createUserWithEmailAndPassword(email: email, password: password);
 
       //save user info
-      _firestore.collection("Users").doc(userCredential.user!.uid).set(
+      _firestore.collection("users").doc(userCredential.user!.uid).set(
         {
           'uid' : userCredential.user!.uid,
+          'name' : name,
           'email' : email,
+          'wallet' : 0
         },
       );
-
 
       return userCredential;
     } on FirebaseAuthException catch (e) {
       throw Exception(e.code);
     }
-
-    
-
+ 
   }
   
 

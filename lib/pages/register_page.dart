@@ -6,8 +6,10 @@ import 'package:idairy/components/my_textfield.dart';
 import 'package:idairy/services/auth/auth_service.dart';
 import 'package:idairy/utils/global_colors.dart';
 
+
 class RegisterPage extends StatelessWidget {
 
+  final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmpasswordController = TextEditingController();
@@ -27,7 +29,7 @@ class RegisterPage extends StatelessWidget {
     if(_passwordController.text ==_confirmpasswordController.text)
     {
       try{
-        _auth.signUpWithEmailPassword(_emailController.text, _passwordController.text);
+        _auth.signUpWithEmailPassword(_nameController.text, _emailController.text, _passwordController.text);
       }
       catch (e){
         showDialog(
@@ -74,6 +76,13 @@ class RegisterPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 25),
+            //email
+            myTextField(
+              hintText: 'Name',
+              obscureText: false,
+              controller: _nameController,
+            ),
+            const SizedBox(height: 10),
             //email
             myTextField(
               hintText: 'Email',
