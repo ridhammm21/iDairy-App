@@ -22,7 +22,8 @@ class AuthService{
         {
           'uid' : userCredential.user!.uid,
           'email' : email,
-          'wallet' : 0
+          'wallet' : 0,
+          'role' : 0
         },
       );
       
